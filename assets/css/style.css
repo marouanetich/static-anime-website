@@ -1,0 +1,1116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(228, 7%, 14%);
+  counter-reset: rank days;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    width: 1320px;
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+:root {
+  --primary-color: hsl(48, 88%, 52%);
+  --primary-color-bright: hsl(48, 88%, 60%);
+  --secondary-color: hsl(358, 85%, 52%);
+  --color-1: hsl(223, 8%, 18%);
+  --color-2: hsl(229, 8%, 26%);
+  --light-gray-1: hsl(0, 0%, 60%);
+  --b-radius: 6px;
+  --margin: 100px;
+}
+
+::selection {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 100vmax;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-2);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Starts */
+.landing-page-background {
+  background: linear-gradient(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.5)),
+    url(../images/Luffy-Landing.jpg) center/cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.3rem;
+}
+
+.header .op-logo {
+  width: 60px;
+}
+
+.header .links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .header .op-logo {
+    width: 50px;
+  }
+  .header .links {
+    display: none;
+  }
+}
+
+.header .links a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.header .links a:is(:hover, :focus-visible) {
+  color: var(--primary-color-bright);
+  outline: none;
+}
+
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header .icons i {
+  font-size: 1.375rem;
+  cursor: pointer;
+  color: white;
+}
+
+.header .icons .bell-notifications {
+  position: relative;
+}
+
+.header .icons span {
+  position: absolute;
+  background-color: var(--primary-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 100vmax;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  place-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.header .icons input[type="checkbox"] {
+  display: none;
+}
+
+.header .icons .hamburger .hamburger-menu {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 15%;
+  background-color: var(--color-1);
+  padding: 1rem;
+  transition: left 0.4s linear;
+  overflow-y: auto;
+}
+
+.header .icons .hamburger .hamburger-menu::-webkit-scrollbar {
+  width: 0;
+}
+
+.header .icons input[type="checkbox"]:checked + .hamburger .hamburger-menu {
+  left: 0;
+}
+
+.header .icons .hamburger .hamburger-menu button {
+  background-color: var(--color-2);
+  color: var(--light-gray-1);
+  border-radius: 100vmax;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.header .icons .hamburger .hamburger-menu button:hover {
+  filter: brightness(1.1);
+}
+
+.header .icons .hamburger .hamburger-menu ul {
+  margin-top: 25px;
+}
+
+.header .icons .hamburger .hamburger-menu a {
+  display: block;
+  padding-block: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  position: relative;
+}
+
+.header .icons .hamburger .hamburger-menu a:hover {
+  color: var(--primary-color);
+}
+
+.header .icons .hamburger .hamburger-menu a::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  bottom: 0;
+  width: calc(100% + 2rem);
+  height: 1px;
+  background-color: var(--color-2);
+}
+
+.header :is(.signin-popup, .signup-popup) {
+  position: fixed;
+  top: 20%;
+  margin-inline: auto;
+  background-image: url("../images/wallpaperflare.com_wallpaper.jpg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 20px;
+  z-index: 99;
+  box-shadow: 0 0 15px black;
+}
+
+.header .signup-popup {
+  top: 10%;
+}
+
+.header :is(.signin-popup[open], .signup-popup[open]) {
+  animation: showup 0.25s ease-out forwards;
+}
+
+@keyframes showup {
+  to {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.header .signin-popup::before,
+.header .signup-popup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 85%);
+  z-index: -1;
+  border-radius: 17px;
+}
+
+.header :is(.signin-popup, .signup-popup) label {
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--light-gray-1);
+}
+
+.header :is(.signin-popup, .signup-popup) input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.header :is(.signin-popup, .signup-popup) input::placeholder {
+  font-size: 14px;
+}
+
+.header :is(.signin-popup, .signup-popup) input:focus-visible {
+  outline: none;
+}
+
+.header :is(.signin-popup, .signup-popup) button {
+  margin-block: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.header .signin-popup div:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.header .signin-popup div:last-child {
+  text-align: center;
+  color: white;
+}
+
+.header .signin-popup div a {
+  color: var(--primary-color);
+}
+
+.header :is(.signin-popup, .signup-popup) .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header :is(.signin-popup, .signup-popup) .close::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  border-radius: 100vmax;
+  background-color: #535353;
+  z-index: -1;
+  visibility: hidden;
+  transition: 0.2s linear;
+}
+
+.header :is(.signin-popup, .signup-popup) .close:hover::after {
+  visibility: visible;
+}
+
+.header .signup-popup div {
+  margin-bottom: 1rem;
+}
+
+.header .overlay.visible::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background-color: rgba(0 0 0 / 65%);
+}
+/* Header Ends */
+
+/* Landing Starts */
+.landing-page-background .container {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  align-content: space-between;
+  min-height: 100vh;
+}
+
+.landing-text {
+  color: white;
+}
+
+.landing-text h1 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .landing-text {
+    width: 50%;
+  }
+
+  .landing-text h1 {
+    font-size: 45px;
+  }
+}
+
+.landing-text h1 span {
+  color: var(--primary-color);
+}
+
+.landing-text p {
+  line-height: 1.8;
+  margin-block: 1rem;
+}
+
+.main-button {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-button:hover {
+  background-color: var(--primary-color-bright);
+}
+
+.main-button i {
+  font-size: 1.1rem;
+  margin-left: 25px;
+}
+
+.main-button:hover i {
+  animation: move 0.6s linear infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
+.landing-info {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.3rem;
+  color: white;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .landing-info {
+    display: none;
+  }
+}
+
+.landing-info h3 {
+  margin-block: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.landing-info .ratings i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+/* Landing Ends */
+
+/* Start Trending & Continue Watching & Most Viewed */
+.section-1 {
+  margin-top: var(--margin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.section-1 > div:first-child {
+  flex: 1 1 auto;
+}
+
+.section-1 > div:first-child .anime {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.section-1 > div:first-child h2 {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.section-1 > div:first-child .anime img {
+  border-radius: var(--b-radius);
+  width: 100%;
+}
+
+.section-1 > div:first-child > div:last-child {
+  margin-top: var(--margin);
+}
+
+.section-1 > div:last-child {
+  background-color: var(--color-1);
+  border-radius: var(--b-radius);
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+@media (max-width: 992px) {
+  .section-1 > div:last-child {
+    width: 100%;
+  }
+}
+
+.section-1 > div:last-child .time {
+  display: flex;
+  background-color: var(--color-2);
+}
+
+.section-1 > div:last-child .time span {
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  padding-block: 1rem;
+}
+
+.section-1 > div:last-child .time .active {
+  color: var(--primary-color);
+  background-color: var(--color-1);
+}
+
+.section-1 > div:last-child > div:not(.time) {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+.section-1 > div:last-child .rank {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-gray-1);
+  position: relative;
+}
+
+.section-1 > div:last-child div:nth-child(2) .rank,
+.section-1 > div:last-child div:nth-child(3) .rank,
+.section-1 > div:last-child div:nth-child(4) .rank {
+  color: white;
+}
+
+.section-1 > div:last-child .rank::before {
+  content: "0" counter(rank);
+  counter-increment: rank;
+}
+
+.section-1 > div:last-child div:nth-child(2) .rank::after,
+.section-1 > div:last-child div:nth-child(3) .rank::after,
+.section-1 > div:last-child div:nth-child(4) .rank::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 -28px 0;
+  margin: auto;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.section-1 > div:last-child img {
+  width: 80px;
+  border-radius: var(--b-radius);
+}
+
+.section-1 > div:last-child > div:not(.time) > div {
+  align-self: flex-start;
+}
+
+.section-1 > div:last-child h4 {
+  font-size: 1rem;
+  width: 20ch;
+  color: white;
+}
+
+.section-1 > div:last-child .numbers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.section-1 > div:last-child .numbers div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.section-1 > div:last-child .numbers i {
+  color: var(--light-gray-1);
+  font-size: 12px;
+}
+
+.section-1 > div:last-child .numbers span {
+  color: var(--light-gray-1);
+  font-size: 12px;
+}
+/* End Trending & Continue Watching & Most Viewed */
+
+/* Episodes Start */
+.section-2 {
+  margin-top: var(--margin);
+}
+
+.section-2 .container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.section-2 .episodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+  gap: 2rem;
+}
+
+.section-2 .episodes .ep {
+  position: relative;
+}
+
+.section-2 .episodes .video .circle-play {
+  position: absolute;
+  font-size: 45px;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 100vmax;
+  cursor: pointer;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section-2 .episodes video {
+  width: 100%;
+  border-radius: var(--b-radius);
+}
+
+.section-2 .episodes .ep-info {
+  color: var(--light-gray-1);
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.section-2 .episodes span {
+  display: block;
+  font-size: 14px;
+}
+
+.section-2 .episodes span:first-child {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 5px;
+}
+/* Episodes End */
+
+/* Watched Anime Starts */
+.section-3 {
+  margin-top: var(--margin);
+}
+
+.title {
+  color: white;
+  font-size: 1.15rem;
+}
+
+.section-3 .shuffle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.section-3 .shuffle a {
+  background-color: var(--color-2);
+  color: var(--light-gray-1);
+  border-radius: var(--b-radius);
+  padding: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .section-3 .shuffle a {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.section-3 .shuffle .active {
+  background-color: var(--primary-color);
+  color: var(--color-1);
+}
+
+.section-3 .shuffle a:not(.active):hover {
+  color: var(--primary-color);
+}
+
+.section-3 .all-anime {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  gap: 1.15rem;
+  margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+  .section-3 .all-anime {
+    grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr));
+    margin-top: 25px;
+  }
+}
+
+.section-3 .anime {
+  position: relative;
+}
+
+.section-3 .anime::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 0.5);
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  border-radius: var(--b-radius);
+}
+
+.section-3 .anime:hover::before {
+  opacity: 1;
+}
+
+.section-3 .anime img {
+  border-radius: var(--b-radius);
+  width: 100%;
+  display: block;
+}
+
+.section-3 .anime .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.8rem;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  cursor: pointer;
+}
+
+.section-3 .anime:hover .play-icon {
+  opacity: 1;
+}
+
+.section-3 .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 75px;
+}
+
+.section-3 .pagination span {
+  background-color: var(--color-2);
+  color: var(--light-gray-1);
+  width: 40px;
+  height: 40px;
+  border-radius: 100vmax;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+}
+
+.section-3 .pagination span:hover {
+  color: var(--primary-color);
+}
+
+.section-3 .pagination span.active {
+  background-color: var(--primary-color);
+  color: var(--color-1);
+}
+/* Watched Anime Ends */
+
+/* Estimated Schedule Starts */
+.section-4 {
+  margin-top: var(--margin);
+}
+
+.section-4 .container > div {
+  border-radius: var(--b-radius);
+  overflow: hidden;
+  background-image: url(../images/979716.jpg);
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  isolation: isolate;
+}
+
+.section-4 .container > div::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(42 44 49 / 80%);
+  z-index: -1;
+}
+
+.section-4 h2 {
+  padding: 1rem;
+}
+
+.section-4 h3 {
+  color: var(--light-gray-1);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-inline: 1rem;
+}
+
+@media (max-width: 767px) {
+  .section-4 h3 {
+    font-size: 15px;
+  }
+}
+
+.section-4 .days {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-inline: 1rem;
+  margin-block: 2.5rem;
+}
+
+.section-4 .days i {
+  background-color: var(--color-2);
+  color: var(--light-gray-1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+.section-4 .days div {
+  background-color: var(--color-2);
+  border-radius: var(--b-radius);
+  padding: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .section-4 .days .laptop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-4 .days .mobile {
+    display: none;
+  }
+}
+
+.section-4 .days div.active {
+  background-color: var(--primary-color);
+}
+
+.section-4 .days div.active span {
+  color: white;
+}
+
+.section-4 .days span {
+  display: block;
+  color: var(--light-gray-1);
+}
+
+.section-4 .days div:hover:not(.active) {
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+.section-4 .days span:first-child {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.section-4 .days span:last-child::after {
+  content: " " counter(days);
+  counter-increment: days;
+}
+
+.section-4 .episodes > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  transition: background-color 0.2s linear;
+  font-weight: 500;
+}
+
+.section-4 .episodes > div:nth-child(2n + 1) {
+  background-color: var(--color-1);
+}
+
+.section-4 .episodes > div:nth-child(2n) {
+  background-color: var(--color-2);
+}
+
+.section-4 .episodes > div:hover {
+  background-color: rgb(37, 39, 43);
+}
+
+.section-4 .ep-time span {
+  color: var(--light-gray-1);
+  margin-right: 20px;
+  font-size: 1.2rem;
+  transition: color 0.2s linear;
+}
+
+@media (max-width: 767px) {
+  .section-4 .ep-time span {
+    font-size: 0.8rem;
+  }
+}
+
+.section-4 .episodes > div:hover .ep-time span {
+  color: white;
+}
+
+.section-4 .ep-num {
+  display: flex;
+  align-items: center;
+  background-color: #202125;
+  border-radius: var(--b-radius);
+  color: var(--light-gray-1);
+  padding: 10px 20px;
+  transition: 0.2s linear;
+}
+
+.section-4 .episodes > div:hover .ep-num {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.section-4 .ep-num i {
+  margin-right: 1rem;
+  font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  .section-4 .ep-num {
+    padding: 8px 10px;
+  }
+
+  .section-4 .ep-num i,
+  .section-4 .ep-num {
+    font-size: 0.7rem;
+  }
+}
+/* Estimated Schedule Ends */
+
+/* Start .footer */
+.footer {
+  margin-top: var(--margin);
+  padding-block: 50px;
+  background-image: url(../images/606275.jpg);
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  isolation: isolate;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(42 44 49 / 90%);
+  z-index: -1;
+}
+
+.footer .line-1 {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray-1);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  width: fit-content;
+}
+
+@media (max-width: 767px) {
+  .footer .line-1 {
+    margin: 0 auto 30px;
+  }
+}
+
+.footer .logo {
+  width: 50px;
+}
+
+.footer .icons {
+  border-left: 1px solid var(--light-gray-1);
+  padding: 10px 0 10px 20px;
+  margin-left: 20px;
+}
+
+.footer .icons i {
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.footer .icons i:hover {
+  color: var(--primary-color);
+}
+
+.footer .line-2 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.footer .line-2 div:first-child {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .footer .line-2 div:first-child {
+    justify-content: center;
+  }
+}
+
+.footer .line-2 div:first-child h3 {
+  margin-right: 20px;
+  font-weight: 600;
+}
+
+.footer .line-2 div:first-child p {
+  font-size: 14px;
+  color: var(--light-gray-1);
+}
+
+@media (max-width: 767px) {
+  .footer .line-2 div:first-child h3 {
+    font-size: 0.8em;
+  }
+
+  .footer .line-2 div:first-child p {
+    font-size: 12px;
+  }
+}
+
+.footer .line-2 div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+@media (max-width: 767px) {
+  .footer .line-2 div:last-child {
+    justify-content: center;
+  }
+}
+
+.footer .line-2 div:last-child span {
+  background-color: var(--color-2);
+  border-radius: var(--b-radius);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.footer .line-2 div:last-child span:hover {
+  background-color: var(--primary-color);
+  color: var(--color-2);
+}
+
+@media (max-width: 767px) {
+  .footer .line-2 div:last-child span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer .line-3 {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.footer .line-3 span {
+  color: var(--light-gray-1);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.footer .line-3 span:not(:last-child) {
+  margin-right: 15px;
+}
+
+.footer .line-3 span:hover {
+  color: var(--primary-color);
+}
+/* End .footer */
